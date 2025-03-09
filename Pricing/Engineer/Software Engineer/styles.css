@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --green: #00FF00;
+  --font-small: 0.9rem;
+  --font-medium: 1rem;
+  --font-large: 1.2rem;
+}
+
+body {
+  font-family: "Josefin Sans", serif;
+  margin: 0;
+  padding: 0;
+  background: var(--black);
+  color: var(--white);
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: var(--black);
+  padding: 1.4rem 0;
+}
+
+.nav-link {
+  color: var(--white);
+  border: 1.4px solid var(--green); 
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.navbar-nav {
+  padding: 11px;
+}
+  
+.nav-link:hover,
+.nav-link:focus {
+  background-color: var(--green); 
+  color: var(--black);
+  border: none;
+}
+
+/* Footer Section */
+.footer-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: var(--font-small);
+  transition: color 0.3s;
+  opacity: 0.7;
+}
+  
+.footer-link:hover {
+  border-bottom: 1.4px solid var(--white);
+}
+
+/* Content Layout */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Intro Section */
+.intro-section {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.intro-section h2 {
+  font-size: var(--font-large);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.intro-section h3 {
+  font-size: var(--font-medium);
+  margin: 0.8rem 0 1.2rem;
+  text-transform: uppercase;
+}
+
+.intro-text,
+.sdlc-text {
+  font-size: var(--font-small);
+  max-width: 800px;
+  margin: 0.5rem auto;
+  line-height: 1.4;
+  padding-bottom: 7px;
+  opacity: .7;
+}
+
+.sdlc-text strong {
+  color: var(--green)
+}
+
+/* Pricing Section */
+.pricing-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem;
+}
+
+.pricing-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  width: 280px;
+  text-align: center;
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  border: 1px solid var(--green);
+  transform: scale(1.02);
+}
+
+.pricing-card h3 {
+  font-size: var(--font-medium);
+  margin-bottom: 0.3rem;
+}
+
+.pricing-card small {
+  display: block;
+  font-size: var(--font-small);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.8rem;
+}
+
+.price {
+  font-size: var(--font-medium);
+  margin-bottom: 0.8rem;
+}
+
+.price span {
+  font-size: var(--font-small);
+}
+
+.price strong {
+  font-size: var(--font-large);
+  margin-left: 0.3rem;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2.1rem;
+  text-align: left;
+}
+
+.services-list li {
+  margin-bottom: 0.4rem;
+  font-size: var(--font-small);
+}
+
+.icon {
+  color: var(--green);
+  margin-right: 0.4rem;
+}
+
+/* Call-to-Action Button */
+.cta-btn {
+  background-color: var(--green);
+  width: 49%;
+  text-decoration: none;
+  opacity: .6;
+  color: var(--black);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: var(--font-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: rgba(0, 255, 0, 0.8);
+}
