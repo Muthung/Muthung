@@ -15,12 +15,11 @@ body {
   padding: 0;
   background: var(--black);
   color: var(--white);
-  overflow: hidden;
   scroll-behavior: smooth;
 }
 
 .main-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
