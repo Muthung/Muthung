@@ -191,7 +191,8 @@ COMPLETED SECTION
 .completed-count-extra {
     text-decoration: none;
     color: var(--green);
-    opacity: .4;
+    opacity: .7;
+    padding-right: 7px;
 }
   
 .completed-text {
