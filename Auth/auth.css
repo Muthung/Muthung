@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 body {
@@ -8,16 +7,18 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #f8f9fa; /* Light background for better readability */
 }
 
 :root {
     --white: #fff;
     --black: #000;
     --green: #00FF00;
+    --gray: #6c757d;
 }
 
 /*
@@ -28,7 +29,7 @@ NAVIGATION BAR SECTION
 
 nav {
     background-color: var(--black);
-    padding: 1.4rem 0 1.4rem 0 ;
+    padding: 1.4rem 0;
 }
 
 .nav-link {
@@ -126,6 +127,37 @@ button {
 
 /*
 
+CONTACT SECTION                   
+
+*/
+
+#contact {
+    padding: 50px 0;
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+}
+
+/*
+
 FOOTER SECTION                   
 
 */
@@ -145,4 +177,4 @@ FOOTER SECTION
 
 .container-fluid .col-md-6 br {
     padding: 2.1px 0;
-}  
+}

@@ -30,41 +30,52 @@
     </div>
   </nav>
   
-  <!-- Toggle Icons -->
-    
-<!-- Font Awesome Icon for Switching Forms -->
-    <i class="fa-solid fa-repeat switch-form" id="switchForm"></i>
-
-    <!-- Main Content -->
-    <main class="container d-flex align-items-center justify-content-center">
-        <div class="form-container">
-            <!-- Login Form -->
-            <form id="loginForm" class="form">
-                <h3>Login</h3>
-                <input type="text" id="loginName" placeholder="Username, Email, or Phone" required>
-                <input type="password" id="loginPassword" placeholder="Password" required>
-                <a href="#" id="forgotPassword" class="forgot-password">Forgot Password?</a>
-                <input type="text" id="accessToken" placeholder="Access Token (optional)">
-                <button type="submit">Login</button>
-            </form>
-
-            <!-- Sign-up Form -->
-            <form id="signupForm" class="form hidden">
-                <h3>Sign Up</h3>
-                <input type="text" id="firstName" placeholder="First Name" required>
-                <input type="text" id="lastName" placeholder="Last Name" required>
-                <input type="text" id="signupEmailPhone" placeholder="Email or Phone" required>
-                <input type="password" id="signupPassword" placeholder="Password" required>
-                <input type="password" id="repeatPassword" placeholder="Repeat Password" required>
-                <button type="submit">Sign Up</button>
-            </form>
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container text-center">
+      <h2 class="text-white">Let's Work Together</h2>
+      <p class="text-muted">You’ve got a project in mind? Let’s discuss it. Hit me up and I’ll get back to you as soon as possible.</p>
+      <div class="contact-form">
+        <form id="contactForm" action="send_email.php" method="POST">
+          <div class="row">
+            <div class="col-md-6">
+              <input type="text" class="form-control mb-3" name="firstName" placeholder="Firstname" required />
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control mb-3" name="lastName" placeholder="Lastname" required />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <input type="email" class="form-control mb-3" name="email" placeholder="Email Address" required />
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control mb-3" name="phone" placeholder="Phone number" required />
+            </div>
+          </div>
+          <div class="mb-3">
+            <select class="form-select" name="service" required>
+              <option selected disabled>Select a service</option>
+              <option value="Web Development">Web Development</option>
+              <option value="IT Consulting">IT Consulting</option>
+              <option value="Technical Support">Technical Support</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Type your message here." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Send message</button>
+        </form>
+        <div class="mt-4 contact-info text-start">
+          <p><i class="fa-solid fa-phone"></i> +254 799 639 207</p>
+          <p><i class="fa-solid fa-envelope"></i> muthunguclintn@gmail.com</p>
+          <p><i class="fa-solid fa-map-marker-alt"></i> Nairobi, Kenya</p>
         </div>
-    </main>
-
-
+    </div>
+  </section>
 
   <!-- Footer Section -->
-  <footer class="container-fluid py-3"">
+  <footer class="container-fluid py-3">
     <div class="row">
       <div class="col-md-6 d-flex align-items-center">
         <a href="#" class="footer-link me-3">Privacy Policy</a>
