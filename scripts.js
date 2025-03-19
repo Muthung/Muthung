@@ -10,42 +10,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Number Counter Animation When in View
-  const counters = document.querySelectorAll(".completed-count");
-  const speed = 200; // Adjust speed for animation
-
-  function startCounter(counter) {
-    const target = +counter.getAttribute("data-target");
-    let count = 0;
-    const increment = target / speed;
-
-    function updateCount() {
-      if (count < target) {
-        count += increment;
-        counter.innerText = Math.ceil(count);
-        setTimeout(updateCount, 20);
-      } else {
-        counter.innerText = target; // Ensure final value is accurate
+  // Smooth Scroll for Navigation Links
+  document.querySelectorAll('a.nav-link').forEach((link) => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }
+    });
+  });
 
-    updateCount();
+  // Testimonial Carousel
+  const testimonials = document.querySelectorAll('#testimonials .blockquote');
+  let currentTestimonial = 0;
+
+  function showTestimonial(index) {
+    testimonials.forEach((testimonial, i) => {
+      testimonial.style.display = i === index ? 'block' : 'none';
+    });
   }
 
-  // Intersection Observer to trigger the animation only when section is visible
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          startCounter(entry.target);
-          observer.unobserve(entry.target); // Stop observing once animation starts
-        }
-      });
-    },
-    { threshold: 0.5 } // Trigger when at least 50% of the section is visible
-  );
+  function nextTestimonial() {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(currentTestimonial);
+  }
 
-  counters.forEach((counter) => {
-    observer.observe(counter);
-  });
+  // Initialize carousel
+  if (testimonials.length > 0) {
+    showTestimonial(currentTestimonial);
+    setInterval(nextTestimonial, 5000); // Change testimonial every 5 seconds
+  }
 });
