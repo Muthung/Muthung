@@ -94,6 +94,8 @@ main .col-md-8 {
     font-style: italic;
 }
 
+/********************* Work Condition Section ***********************/
+
 .textmuted .fa-check {
     margin-left: 10px;
     transition: .4s ease-in;
@@ -101,6 +103,18 @@ main .col-md-8 {
 
 .textmuted .fa-check:hover {
     color: var(--black);
+    transform: translateX(-14px);
+    opacity: 0;
+}
+
+.textmuted .fa-lock {
+    color: var(--black);
+    margin-left: 10px;
+    transition: .4s ease-in;
+}
+
+.textmuted .fa-lock:hover {
+    color: var(--green);
     transform: translateX(-14px);
     opacity: 0;
 }
