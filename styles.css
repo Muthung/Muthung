@@ -256,6 +256,23 @@ COMPLETED SECTION
     color: var(--green);
 }
 
+/* Responsive styling for testimonials */
+@media screen and (max-width: 768px) {
+  #testimonials .row {
+    flex-direction: column; /* Stack testimonials vertically */
+    align-items: center; /* Center align the testimonials */
+  }
+
+  #testimonials .col-md-4 {
+    width: 100%; /* Make each testimonial take full width */
+    margin-bottom: 1rem; /* Add spacing between testimonials */
+  }
+
+  #testimonials .blockquote {
+    padding: 1rem; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Reduce font size for better readability */
+  }
+}
 
 /*
 
