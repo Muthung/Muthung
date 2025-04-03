@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Websphere</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">The WebSphere</div>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="contact-header fade-element" data-delay="0">
+      <h1>Contact Us</h1>
+    </section>
+    <section class="contact-content fade-element" data-delay="0.2">
+      <p>We’d love to hear from you. For inquiries or project discussions, reach out via:</p>
+      <p>Email: <a href="mailto:info@thewebsphere.com">info@thewebsphere.com</a></p>
+      <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+    </section>
+    <section class="contact-form fade-element" data-delay="0.4">
+      <h2>Send a Message</h2>
+      <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="fade-element" data-delay="0.6">
+    <p>&copy; 2025 The Websphere. All rights reserved.</p>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <div id="back-to-top" class="scroll-btn">↑</div>
+  <div id="message-icon" class="scroll-btn">✉</div>
+</body>
+</html>
