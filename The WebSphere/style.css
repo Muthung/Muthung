@@ -16,7 +16,7 @@
   :root {
 	--white: #fff;
 	--black: #000;
-	--green: #00FF00;
+	--brown: #a1683a;
   }
   
   /* Fade-In Animation */
@@ -61,12 +61,12 @@
 	color: var(--white);
 	text-decoration: none;
 	padding: 0.5rem 1rem;
-	border: 1px solid var(--green);
+	border: 1px solid var(--brown);
 	transition: background-color 0.3s, color 0.3s;
   }
   .nav-links li a:hover,
   .nav-links li a.active {
-	background-color: var(--green);
+	background-color: var(--brown);
 	color: var(--black);
   }
   
@@ -150,7 +150,7 @@
   }
   .card {
 	background-color: var(--white);
-	border: 1px solid var(--green);
+	border: 1px solid var(--brown);
 	padding: 1.5rem;
 	width: 300px;
 	text-align: center;
@@ -174,13 +174,13 @@
   }
   form input, form textarea {
 	padding: 0.5rem;
-	border: 1px solid var(--green);
+	border: 1px solid var(--brown);
 	border-radius: 3px;
   }
   form button {
 	padding: 0.75rem;
 	border: none;
-	background-color: var(--green);
+	background-color: var(--brown);
 	color: var(--black);
 	cursor: pointer;
 	transition: background-color 0.3s;
@@ -204,7 +204,7 @@
   .scroll-btn {
 	position: fixed;
 	display: none;
-	background-color: var(--green);
+	background-color: var(--brown);
 	color: var(--black);
 	width: 40px;
 	height: 40px;
