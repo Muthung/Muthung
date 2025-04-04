@@ -1,29 +1,38 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $firstName = htmlspecialchars($_POST['firstName']);
-    $lastName = htmlspecialchars($_POST['lastName']);
-    $email = htmlspecialchars($_POST['email']);
-    $phone = htmlspecialchars($_POST['phone']);
-    $service = htmlspecialchars($_POST['service']);
-    $message = htmlspecialchars($_POST['message']);
+    // Sanitize form inputs
+    $firstName = htmlspecialchars(trim($_POST['firstName']));
+    $lastName = htmlspecialchars(trim($_POST['lastName']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $phone = htmlspecialchars(trim($_POST['phone']));
+    $service = htmlspecialchars(trim($_POST['service']));
+    $message = htmlspecialchars(trim($_POST['message']));
 
-    $to = "muthunguclintn@gmail.com"; // Replace with your Gmail address
-    $subject = "New Contact Form Submission";
-    $body = "You have received a new message from your contact form:\n\n" .
-            "First Name: $firstName\n" .
-            "Last Name: $lastName\n" .
-            "Email: $email\n" .
-            "Phone: $phone\n" .
-            "Service: $service\n\n" .
-            "Message:\n$message";
+    // Set recipient email (your forwarding address)
+    $to = "contact@muthungu.co.ke";
+    
+    // Email configuration
+    $subject = "New Contact Form Submission from " . $firstName . " " . $lastName;
+    $headers = "From: " . $email . "\r\n";
+    $headers .= "Reply-To: " . $email . "\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
 
-    $headers = "From: $email\r\n" .
-               "Reply-To: $email\r\n";
+    // Compose email body
+    $emailBody = "Name: " . $firstName . " " . $lastName . "\n";
+    $emailBody .= "Email: " . $email . "\n";
+    $emailBody .= "Phone: " . $phone . "\n";
+    $emailBody .= "Service: " . $service . "\n\n";
+    $emailBody .= "Message:\n" . $message;
 
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Message sent successfully!";
+    // Send email
+    if(mail($to, $subject, $emailBody, $headers)) {
+        // Redirect to success page
+        header("Location: thank-you.html");
+        exit();
     } else {
-        echo "Failed to send the message. Please try again.";
+        // Redirect to error page
+        header("Location: error.html");
+        exit();
     }
 }
 ?>
