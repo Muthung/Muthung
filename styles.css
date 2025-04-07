@@ -10,6 +10,11 @@ body {
     --black: #000;
     --green: #00FF00;
     --khaki: #F0E68C;
+    --terminal-theme: #f8f8f8;
+    --terminal-header: #383838;
+    --terminal-title: #00ff00;
+    --tech-item: #2b2b2b;
+    --tech-name: #f8f8f8;
 }
 
 
@@ -153,25 +158,19 @@ main .container-fluid .Socials col {
     background-color: var(--white);
     min-height: 475px;
     position: relative;
-    /* Required for absolute positioning of the arrow */
 }
 
 #services .container {
     background-color: transparent;
     padding: 0;
     padding-left: 0;
-    /* Remove left padding */
     padding-right: 0;
-    /* Remove right padding */
     max-width: 100%;
-    /* Ensure full width */
 }
 
 #services .row {
     margin-left: 0;
-    /* Remove left margin */
     margin-right: 0;
-    /* Remove right margin */
 }
 
 #services .container .col h2 {
@@ -185,7 +184,6 @@ main .container-fluid .Socials col {
     color: var(--black);
     padding: 20px;
     position: relative;
-    /* Required for absolute positioning of the arrow */
 }
 
 #services .col-md-6:last-child {
@@ -193,18 +191,14 @@ main .container-fluid .Socials col {
     color: var(--white);
     padding: 20px;
     position: relative;
-    /* Required for absolute positioning of the arrow */
 }
 
 #services .col-md-6:first-child .service-link {
     color: var(--black);
     border-bottom-color: var(--green);
     display: flex;
-    /* Use flexbox to control alignment */
     flex-direction: column;
-    /* Stack the text and arrow vertically */
     align-items: flex-start;
-    /* Align items to the start (left) */
 }
 
 #services .col-md-6:first-child .service-link:hover,
@@ -216,11 +210,8 @@ main .container-fluid .Socials col {
     color: var(--white);
     border-bottom-color: var(--green);
     display: flex;
-    /* Use flexbox to control alignment */
     flex-direction: column;
-    /* Stack the text and arrow vertically */
     align-items: flex-start;
-    /* Align items to the start (left) */
 }
 
 #services .col-md-6:last-child .service-link:hover,
@@ -243,7 +234,7 @@ main .container-fluid .Socials col {
     content: '\f061';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
-    color: var(--green);
+    color: var (--green);
     transition: opacity 0.3s ease;
     align-self: flex-end;
 }
@@ -282,11 +273,72 @@ section li {
 }
 
 
-/*
+/************ Terminal Theme Section ************/
 
-COMPLETED SECTION                   
+#tech-stack {
+    margin: 84px 0;
+}
 
-*/
+.terminal-theme {
+    background-color: var(--white);
+    color: var(--terminal-theme);
+}
+
+.terminal-header {
+    background-color: var(--terminal-header);
+    padding: 8px 15px;
+    border-radius: 8px 8px 0 0;
+}
+
+.terminal-title {
+    color: var(--terminal-title);
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-body {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+.command-line {
+    color: var(--terminal-title);
+    font-family: 'Courier New', monospace;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--tech-item);
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.tech-item:hover {
+    transform: translateY(-2px);
+    background-color: var(--terminal-header);
+}
+
+.tech-item i {
+    font-size: 1.5rem;
+    color: var(--terminal-title);
+}
+
+.tech-name {
+    font-family: 'Courier New', monospace;
+    color: var(--tech-name);
+}
+
+
+/************ Projects Completed Section ************/
 
 #completed {
     text-align: center;
@@ -295,9 +347,7 @@ COMPLETED SECTION
 
 .completed-count {
     font-size: 2.3rem;
-    /* Adjusted for Montserrat */
     font-weight: 700;
-    /* Bold weight */
     color: var(--black);
     opacity: .6;
     display: block;
@@ -312,13 +362,12 @@ COMPLETED SECTION
 
 .completed-text {
     font-size: 1rem;
-    /* Adjusted for Montserrat */
     color: var(--black);
     margin-top: 0.5rem;
 }
 
 
-/* TESTIMONIALS SECTION */
+/************ Testimonials Section ************/
 
 #testimonials {
     padding: 3rem 0;
@@ -327,16 +376,13 @@ COMPLETED SECTION
 
 #testimonials h2 {
     font-size: 2.3rem;
-    /* Adjusted for Montserrat */
     font-weight: 700;
-    /* Bold weight */
     color: var(--black);
     margin-bottom: 2rem;
 }
 
 #testimonials .blockquote {
     font-size: 1rem;
-    /* Adjusted for Montserrat */
     font-style: italic;
     color: var(--black);
     padding: 1.5rem;
@@ -352,7 +398,6 @@ COMPLETED SECTION
 
 #testimonials .blockquote-footer {
     font-size: 0.9rem;
-    /* Adjusted for Montserrat */
     color: var(--black);
     opacity: 0.7;
     margin-top: 1rem;
@@ -361,40 +406,11 @@ COMPLETED SECTION
 #testimonials .blockquote-footer cite {
     font-style: normal;
     font-weight: 600;
-    /* Semi-bold weight for Montserrat */
     color: var(--green);
 }
 
 
-/* Responsive styling for testimonials */
-
-@media screen and (max-width: 768px) {
-    #testimonials .row {
-        flex-direction: column;
-        /* Stack testimonials vertically */
-        align-items: center;
-        /* Center align the testimonials */
-    }
-    #testimonials .col-md-4 {
-        width: 100%;
-        /* Make each testimonial take full width */
-        margin-bottom: 1rem;
-        /* Add spacing between testimonials */
-    }
-    #testimonials .blockquote {
-        padding: 1rem;
-        /* Adjust padding for smaller screens */
-        font-size: 0.9rem;
-        /* Reduce font size for better readability */
-    }
-}
-
-
-/*
-
-FOOTER SECTION                   
-
-*/
+/************ Footer Section ************/
 
 .footer-link {
     color: var(--black);
@@ -408,9 +424,6 @@ FOOTER SECTION
 .footer-link:hover {
     border-bottom: 1.4px solid var (--black);
 }
-
-
-/* Ensure each section takes up the full viewport height */
 
 
 /* Responsive Styles */
@@ -454,6 +467,39 @@ FOOTER SECTION
     }
 }
 
+
+/* Mobile Spacing Adjustments */
+
+@media screen and (max-width: 768px) {
+    /* Section Spacing */
+    section {
+        margin: 40px 0;
+        padding: 0 15px;
+    }
+    /* Tech Stack Adjustments */
+    #tech-stack {
+        margin: 40px 0;
+    }
+    .terminal-theme {
+        margin: 0 15px;
+    }
+    .tech-grid {
+        row-gap: 20px;
+    }
+    /* Projects Section */
+    #completed {
+        margin: 40px 0;
+        min-height: 180px;
+    }
+    /* Testimonials Section */
+    #testimonials {
+        margin: 40px 0;
+    }
+    #testimonials .blockquote {
+        margin-bottom: 25px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     main .col .display-4 {
         font-size: 2.2rem;
@@ -477,5 +523,48 @@ FOOTER SECTION
     }
     #testimonials h2 {
         font-size: 1.8rem;
+    }
+}
+
+
+/* Further reduce spacing for smaller screens */
+
+@media screen and (max-width: 480px) {
+    section {
+        margin: 30px 0;
+        padding: 0 12px;
+    }
+    /* Increase spacing between tech items */
+    .tech-grid {
+        row-gap: 15px;
+    }
+    /* Add breathing room between sections */
+    #tech-stack,
+    #completed,
+    #testimonials {
+        margin: 30px 0;
+    }
+    /* Adjust testimonial card spacing */
+    #testimonials .blockquote {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+}
+
+
+/* Responsive styling for testimonials */
+
+@media screen and (max-width: 768px) {
+    #testimonials .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    #testimonials .col-md-4 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    #testimonials .blockquote {
+        padding: 1rem;
+        font-size: 0.9rem;
     }
 }
