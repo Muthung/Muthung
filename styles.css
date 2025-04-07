@@ -689,3 +689,59 @@ section li {
         font-size: 0.9rem;
     }
 }
+
+
+/* Repository Cards Responsive Styling */
+
+@media screen and (max-width: 1024px) {
+    .repo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .repo-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    .repo-card {
+        margin: 0 10px 15px;
+        padding: 12px;
+    }
+    .repo-header {
+        margin-bottom: 8px;
+    }
+    .repo-name {
+        font-size: 1rem;
+    }
+    .repo-description {
+        font-size: 0.85rem;
+        min-height: 35px;
+    }
+    .repo-stats {
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .repo-card {
+        margin: 0 5px 12px;
+        padding: 10px;
+    }
+    .terminal-header {
+        padding: 6px 12px;
+    }
+    .terminal-body {
+        padding: 15px;
+    }
+    .command-line {
+        font-size: 0.9rem;
+    }
+    .repo-stats {
+        justify-content: space-between;
+    }
+}
