@@ -1,15 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Services Section Toggle
-    const serviceToggles = document.querySelectorAll(".service-toggle"); // Select all service toggles
-    serviceToggles.forEach((toggle) => {
-        toggle.addEventListener("click", function() {
-            const targetList = document.querySelector(this.getAttribute("href"));
-            if (targetList) {
-                targetList.classList.toggle("show");
-            }
-        });
-    });
-
     // Smooth Scroll for Navigation Links
     document.querySelectorAll('a.nav-link').forEach((link) => {
         link.addEventListener('click', function(e) {
