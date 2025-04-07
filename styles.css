@@ -9,14 +9,11 @@ body {
     --white: #fff;
     --black: #000;
     --green: #00FF00;
+    --khaki: #F0E68C;
 }
 
 
-/*
-
-NAVIGATION BAR SECTION                   
-
-*/
+/************ Navigation Section ************/
 
 nav {
     padding: 1.4rem 0 1.4rem 0;
@@ -25,9 +22,7 @@ nav {
 .nav-link {
     color: var(--black);
     font-size: 1rem;
-    /* Adjusted for Montserrat */
     font-weight: 500;
-    /* Medium weight for better readability */
     transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
@@ -71,9 +66,7 @@ main .col-md-8 article {
 .section-link {
     color: var(--black);
     font-size: 1rem;
-    /* Adjusted for Montserrat */
     font-weight: 500;
-    /* Medium weight */
     border-bottom: 1.4px solid green;
     transition: background-color 0.3s, color 0.3s, border-bottom 0.3s;
     padding: 0.5rem 1rem;
@@ -147,32 +140,120 @@ main .col-md-8 .prof-summary-2 {
     opacity: .7;
     color: var(--black);
     font-size: 1.2rem;
-    /* Slightly larger for Montserrat */
+}
+
+main .container-fluid .Socials col {
+    margin-top: 42px;
 }
 
 
-/*
-
-SERVICES SECTION                   
-
-*/
+/************ Service Section ************/
 
 #services {
-    background-color: var(--black);
+    background-color: var(--white);
     min-height: 475px;
+    position: relative;
+    /* Required for absolute positioning of the arrow */
 }
 
-section .text-white {
-    font-weight: 700;
-    /* Bold weight for Montserrat */
-    margin: 14px 0 14px 0;
-    font-size: 1.5rem;
-    /* Adjusted for Montserrat */
+#services .container {
+    background-color: transparent;
+    padding: 0;
+    padding-left: 0;
+    /* Remove left padding */
+    padding-right: 0;
+    /* Remove right padding */
+    max-width: 100%;
+    /* Ensure full width */
+}
+
+#services .row {
+    margin-left: 0;
+    /* Remove left margin */
+    margin-right: 0;
+    /* Remove right margin */
+}
+
+#services .container .col h2 {
+    color: var(--black);
+    padding: 28px;
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+#services .col-md-6:first-child {
+    color: var(--black);
+    padding: 20px;
+    position: relative;
+    /* Required for absolute positioning of the arrow */
+}
+
+#services .col-md-6:last-child {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 20px;
+    position: relative;
+    /* Required for absolute positioning of the arrow */
+}
+
+#services .col-md-6:first-child .service-link {
+    color: var(--black);
+    border-bottom-color: var(--green);
+    display: flex;
+    /* Use flexbox to control alignment */
+    flex-direction: column;
+    /* Stack the text and arrow vertically */
+    align-items: flex-start;
+    /* Align items to the start (left) */
+}
+
+#services .col-md-6:first-child .service-link:hover,
+#services .col-md-6:first-child .service-link:focus {
+    color: var(--black);
+}
+
+#services .col-md-6:last-child .service-link {
+    color: var(--white);
+    border-bottom-color: var(--green);
+    display: flex;
+    /* Use flexbox to control alignment */
+    flex-direction: column;
+    /* Stack the text and arrow vertically */
+    align-items: flex-start;
+    /* Align items to the start (left) */
+}
+
+#services .col-md-6:last-child .service-link:hover,
+#services .col-md-6:last-child .service-link:focus {
+    color: var(--black);
+}
+
+#services .col-md-6:first-child small {
+    color: var(--black);
+}
+
+#services .col-md-6:last-child small {
+    color: var(--white);
+}
+
+
+/* Arrow Styling for Each Service */
+
+#services .service-link:after {
+    content: '\f061';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--green);
+    transition: opacity 0.3s ease;
+    align-self: flex-end;
+}
+
+#services .service-link:hover:after {
+    opacity: 1;
 }
 
 section .service-toggle {
     font-weight: 600;
-    /* Semi-bold weight for Montserrat */
     margin: 14px 0 14px 0;
     padding: 11px;
     text-decoration: none;
@@ -195,19 +276,9 @@ section li {
 .service-link {
     color: var(--white);
     font-size: 1rem;
-    /* Adjusted for Montserrat */
-    border-bottom: 1.4px solid var(--green);
     transition: background-color 0.3s, color 0.3s, border-bottom 0.3s;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    text-transform: lowercase;
-}
-
-.service-link:hover,
-.service-link:focus {
-    border-bottom: none;
-    background-color: var(--green);
-    color: black;
 }
 
 
@@ -335,8 +406,76 @@ FOOTER SECTION
 }
 
 .footer-link:hover {
-    border-bottom: 1.4px solid var(--black);
+    border-bottom: 1.4px solid var (--black);
 }
 
 
 /* Ensure each section takes up the full viewport height */
+
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1024px) {
+    main {
+        padding: 2rem;
+        margin: 2rem;
+    }
+    main .col .display-4 {
+        font-size: 3.5rem;
+    }
+    main .col-md-8 article {
+        padding-left: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 1rem 0;
+    }
+    main {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    main .col .display-4 {
+        font-size: 2.8rem;
+    }
+    main .col-md-8 article {
+        padding-left: 0;
+    }
+    #services .col-md-6 {
+        width: 100%;
+    }
+    #services .container .col h2 {
+        font-size: 2.2rem;
+        padding: 20px;
+    }
+    .completed-count {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main .col .display-4 {
+        font-size: 2.2rem;
+    }
+    .nav-link {
+        font-size: 0.9rem;
+    }
+    #services .container .col h2 {
+        font-size: 1.8rem;
+        padding: 15px;
+    }
+    .section-link {
+        font-size: 0.9rem;
+    }
+    .prof-summary-2 {
+        font-size: 1rem;
+    }
+    #testimonials {
+        height: auto;
+        padding: 2rem 0;
+    }
+    #testimonials h2 {
+        font-size: 1.8rem;
+    }
+}
