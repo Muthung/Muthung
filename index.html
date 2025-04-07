@@ -193,30 +193,54 @@
         </div>
     </section>
 
-    <!-- Completed Section-->
-    <section id="completed" class="py-5 bg-white">
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 terminal-theme">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3">
-                    <h3 class="completed-count">
-                        <a class="completed-count-extra" href="http://"> 7
-            </a>
-                    </h3>
-                    <p class="completed-text">Projects Completed</p>
-                </div>
-                <div class="col-md-3">
-                    <h3 class="completed-count">5</h3>
-                    <p class="completed-text">Years of Experience</p>
-                </div>
-                <div class="col-md-3">
-                    <h3 class="completed-count">4</h3>
-                    <p class="completed-text">Technology Mastered</p>
-                </div>
-                <div class="col-md-3">
-                    <h3 class="completed-count">
-                        <a class="completed-count-extra" href="http://">700</a>
-                    </h3>
-                    <p class="completed-text">Total Commits</p>
+            <div class="terminal-header">
+                <span class="terminal-title">~/projects</span>
+            </div>
+            <div class="terminal-body">
+                <p class="command-line">$ ls featured-repos</p>
+                <div class="repo-grid">
+                    <!-- Featured Repository Cards -->
+                    <div class="repo-card">
+                        <div class="repo-header">
+                            <i class="fab fa-github"></i>
+                            <span class="repo-name">project-alpha</span>
+                        </div>
+                        <p class="repo-description">Full-stack web application with React and Node.js</p>
+                        <div class="repo-stats">
+                            <span class="stat"><i class="fas fa-code-branch"></i> 24</span>
+                            <span class="stat"><i class="fas fa-star"></i> 12</span>
+                            <span class="language"><span class="lang-color js"></span>JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="repo-card">
+                        <div class="repo-header">
+                            <i class="fab fa-github"></i>
+                            <span class="repo-name">api-service</span>
+                        </div>
+                        <p class="repo-description">RESTful API service with Python and FastAPI</p>
+                        <div class="repo-stats">
+                            <span class="stat"><i class="fas fa-code-branch"></i> 18</span>
+                            <span class="stat"><i class="fas fa-star"></i> 8</span>
+                            <span class="language"><span class="lang-color python"></span>Python</span>
+                        </div>
+                    </div>
+
+                    <div class="repo-card">
+                        <div class="repo-header">
+                            <i class="fab fa-github"></i>
+                            <span class="repo-name">docker-compose-setup</span>
+                        </div>
+                        <p class="repo-description">Container orchestration for microservices</p>
+                        <div class="repo-stats">
+                            <span class="stat"><i class="fas fa-code-branch"></i> 15</span>
+                            <span class="stat"><i class="fas fa-star"></i> 6</span>
+                            <span class="language"><span class="lang-color docker"></span>Docker</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
