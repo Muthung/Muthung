@@ -340,24 +340,3 @@ FOOTER SECTION
 
 
 /* Ensure each section takes up the full viewport height */
-
-section {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    /* Initially hidden */
-    transform: translateY(50px);
-    /* Start slightly below */
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-
-/* Fade-in effect when the section becomes visible */
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-    /* Move to normal position */
-}
