@@ -23,6 +23,7 @@ body {
     background: rgba(6, 39, 38, 0.7); /* semi-transparent background */
     backdrop-filter: blur(5px);
     border-bottom: 1px solid var(--extra-color);
+    cursor: pointer;
 }
 
 .navbar-nav {
@@ -318,6 +319,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     padding-left: .7rem;
+    font-size: 1rem;
 }
 
 #services .services-row .card .card-body .btn {
@@ -451,110 +453,6 @@ body {
     color: var(--background-color);
 }
 
-/* Specific alignment for the home section's content */
-#home .section-content > .content-animated-container {
-    text-align: left; /* Align text left within its container */
-}
-
-
-/* --- Sketch Lines Animation Styles --- */
-
-/* SVG element that holds the line */
-.sketch-svg {
-    fill: none; /* No fill for the rectangle */
-}
-
-/* The actual path/line inside the SVG */
-.path-outline {
-    stroke: #198754; /* Bootstrap success green for the line color */
-    stroke-width: 4; /* Thickness of the line */
-    stroke-dasharray: 100; /* Matches pathLength for full drawing effect */
-    stroke-dashoffset: 100; /* Initially hides the line (fully offset) */
-    transition: stroke-dashoffset 1.5s ease-out; /* Animation duration and easing */
-}
-
-/* Class added by JavaScript when the section enters the viewport */
-.is-drawn .path-outline {
-    stroke-dashoffset: 0; /* Draws the line by moving the offset to 0 */
-}
-
-/* Styling for form controls on dark background */
-.form-control.bg-dark, .form-select.bg-dark, .form-control.bg-dark:focus, .form-select.bg-dark:focus {
-    background-color: #212529 !important; /* Darker shade for input fields for contrast */
-    color: #fff !important; /* White text within inputs */
-    border-color: #198754 !important; /* Green border for inputs */
-}
-
-/* Ensure borders are visible and match theme */
-.form-control.border-success, .form-select.border-success {
-    border-color: #198754 !important; /* Green border for inputs */
-}
-
-/* Style for input focus */
-.form-control.border-success:focus, .form-select.border-success:focus {
-    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25) !important; /* Green focus ring */
-}
-
-/* Validation styles for form controls */
-.form-control.is-valid, .form-select.is-valid {
-    border-color: #28a745 !important; /* Standard Bootstrap green for valid */
-    padding-right: calc(1.5em + .75rem);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.1-1.4 1.1-.4l.1.1 3.5 3.5L7.9 1.4c.5-.6.2-1.2-.4-.8L2.3 6.73z'/%3e%3c/svg%3e") !important;
-    background-repeat: no-repeat;
-    background-position: right calc(.375em + .1875rem) center;
-    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-}
-
-.form-control.is-invalid, .form-select.is-invalid {
-    border-color: #dc3545 !important; /* Standard Bootstrap red for invalid */
-    padding-right: calc(1.5em + .75rem);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5l-.2 2.3h-.4z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e") !important;
-    background-repeat: no-repeat;
-    background-position: right calc(.375em + .1875rem) center;
-    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-}
-
-.invalid-feedback {
-    color: #dc3545; /* Red text for invalid feedback */
-}
-
-
-/* --- Dynamic Background Blob Styles --- */
-#background-blob {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scale(0.1); /* Initial scale and horizontal centering fix */
-    width: 600px; /* Base width (will scale up from here) */
-    height: 600px; /* Base height */
-    background: radial-gradient(circle at center, rgba(25, 135, 84, 0.5) 0%, rgba(25, 135, 84, 0) 70%); /* Green translucent glow */
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic blob shape */
-    filter: blur(100px); /* Soft glow effect */
-    z-index: -1; /* Always behind content */
-    opacity: 0.7; /* Initial slight transparency */
-    will-change: transform, opacity; /* Optimize for animation */
-}
-
-/* Ensure content is readable on top of the blob */
-#app {
-    position: relative; /* Necessary for z-index context of children */
-    z-index: 1; /* Ensures content is above the blob (which is z-index: -1) */
-}
-
-
-/* --- Button Gradient Accent --- */
-.btn-gradient {
-    background-image: linear-gradient(45deg, #198754, #28a745); /* Green gradient */
-    border: none;
-    transition: all 0.3s ease;
-}
-
-.btn-gradient:hover {
-    background-image: linear-gradient(45deg, #28a745, #198754); /* Reverse gradient on hover */
-    transform: translateY(-2px); /* Slight lift */
-    box-shadow: 0 4px 8px rgba(25, 135, 84, 0.4); /* Green shadow */
-}
-
 /* --- Card Hover Effect --- */
 .card-hover-effect {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -566,34 +464,73 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
 }
 
+/* Responsive adjustments for mobile screens */
+@media (max-width: 576px) {
+    .navbar-nav.flex-row {
+        flex-direction: row !important;      /* Keep nav links in a row */
+        align-items: center !important;
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.2rem;
+    }
+    .navbar-nav .nav-item {
+        width: auto;
+        padding-right: 6px;
+        margin-right: 2px;
+    }
+    .navbar-nav .nav-link {
+        padding: 0.3rem 0.5rem !important;
+        font-size: 0.85rem !important;
+        text-align: center;
+        min-width: 0;
+    }
+    .navbar .container {
+        justify-content: flex-start !important;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
 
-/* --- Back to Top Button --- */
-.back-to-top-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    z-index: 1000; /* Ensure it's above other content */
-    opacity: 0; /* Initially hidden */
-    visibility: hidden; /* Hide until needed */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
+    /* Remove fixed width from referral form button */
+    #referrals form .btn {
+        width: 100% !important;
+    }
 
-.back-to-top-btn.show {
-    opacity: 1;
-    visibility: visible;
-}
+    /* Reduce padding and margin for cards and sections */
+    .section-content {
+        padding: 0.5rem !important;
+    }
+    #services .services-row .card {
+        margin: 0.5rem !important;
+    }
+    #services .services-row .card .card-body {
+        padding: 1rem !important;
+    }
 
-/* --- Scroll Progress Bar --- */
-#scroll-progress-bar {
-    height: 5px;
-    background-color: #198754; /* Green progress bar */
-    width: 0%; /* Initial width */
-    z-index: 1030; /* Above navbar if navbar is 1020 */
-    transition: width 0.1s linear; /* Smooth width update */
+    /* Reduce font sizes for headings */
+    #home h1, #services h1, #contact h1, #referrals .referral-title {
+        font-size: 1.3rem !important;
+    }
+    #home .choose-engineer-title,
+    #home .set-apart-title,
+    #home .tech-game-title {
+        font-size: 1rem !important;
+    }
+
+    /* Reduce padding in text blocks */
+    .home-container .choose-engineer-text p,
+    .home-container .set-apart-text p,
+    #home .home-container .tech-game-text {
+        padding: 12px 0 !important;
+    }
+
+    /* Contact section paddings */
+    #contact .social-media-link p,
+    #contact .document-download-link p {
+        padding-top: 12px !important;
+        padding-left: 0 !important;
+    }
+    #contact .social-media-link .social-link span,
+    #contact .document-download-link .social-link span {
+        padding-left: 1rem !important;
+    }
 }
