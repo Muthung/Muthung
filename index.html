@@ -1,298 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muthungu</title>
+    <title>I aMuthungu</title>
     <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link to your external stylesheet -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/ed7570f69a.js" crossorigin="anonymous"></script>
+    <!-- Load Vue.js from CDN (development version) -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+<body class="bg-dark text-white">
+    <div id="app" class="d-flex flex-column min-vh-100 position-relative">
+        <!-- Scroll Progress Indicator -->
+        <div id="scroll-progress-bar" class="fixed-top"></div>
 
-<body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg sticky-top">
+            <div class="container d-flex justify-content-center">
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" @click="scrollToSection('home')">
+                            <i class="fas fa-home me-2"></i>
+                           Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services" @click="scrollToSection('services')">
+                            <i class="fas fa-cogs me-2"></i>
+                           Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" @click="scrollToSection('contact')">
+                            <i class="fas fa-envelope me-2"></i>
+                           Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#referrals" @click="scrollToSection('referrals')">
+                            <i class="fas fa-users me-2"></i>
+                           Referrals
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <!-- Navigation Section -->
-    <nav class="navbar navbar-expand">
-        <div class="container-fluid justify-content-end">
-            <ul class="navbar-nav">
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="#Home" aria-label="home">HOME</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="/Auth/auth.html" aria-label="the blog">BLOG</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="/Auth/auth.html" aria-label="the merch">MERCH</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <!-- Main Content Area with all sections always present in the DOM -->
+        <main class="flex-grow-1">
+            <!-- Home Section -->
+            <section id="home" class="section-content bg-app-black">
+                <div class="container home-container">
+                    <div>
+                        <h1 class="text-center">
+                            The Tech Maestro: A Master of All Trades.
+                        </h1>
+                        <p class="home-text">
+                            In a world where technology is the heartbeat of business and innovation, you need a partner who can not only keep pace but stay ahead of the curve.
+                            <br> Enter the <strong class="text-success">Computer Engineer Extraordinaire</strong>—a virtuoso with a rare blend of skills in web development, hardware diagnostics and repair, database management, and computer security.
+                             Think of it as your personal tech concierge, equipped with the tools, knowledge, and a sprinkle of wit to turn even the most daunting digital challenges into seamless solutions.
+                        </p>
 
-    <!-- Main Section -->
-    <main class="container-fluid bg-white " id="Home">
-        <div class="row mb-4">
-            <div class="col">
-                <h1 class="display-4 fw-bold">A Computer Engineer.</h1>
-            </div>
-        </div>
-        <div class="row align-items-start mb-4">
-            <div class="col-md-4">
-                <h3 class="textmuted">Booked <i class="fa-solid fa-lock work"></i> </h3>
-            </div>
-            <div class="col-md-8 justify-content-end">
-                <article>
-                    <p class="prof-summary">As a computer engineer, my technical foundation is built through rigorous academic pursuits.
-                        <br> I have specialized in designing intuitive and efficient digital solutions that simplify complex challenges and enhance everyday experiences. With expertise in multiple programming languages and modern technologies, I create
-                        seamless, high-impact solutions tailored to real-world needs.</p>
-
-                    <p class="prof-summary-2"> "I Do My Homework".</p>
-                </article>
-            </div>
-        </div>
-
-        <div class="row Socials">
-            <div class="col d-flex justify-content-start">
-                <a href="/Auth/auth.html" class="section-link"> <i class="fa-solid fa-arrow-right"> </i> download cv</a>
-            </div>
-            <div class="col d-flex justify-content-end">
-                <a href="https://x.com/_muthungu_" target="_blank" class="section-link me-2">twitter</a>
-                <a href="https://reddit.com/muthungu" target="_blank" class="section-link me-2">reddit</a>
-                <a href="https://telegram.com/@mr_muthungu" target="_blank" class="section-link">telegram</a>
-            </div>
-        </div>
-    </main>
-
-    <!-- Services Section -->
-    <section id="services" class="py-5">
-        <div class="container">
-            <div class="row text-center mb-4">
-                <div class="col">
-                    <h2>Services</h2>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Personal Column -->
-                <div class="col-md-6 text-center mb-4">
-                    <h3>
-                        Personal
-                    </h3>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="/Pricing/Engineer/ICT Solutions/index.html" class="service-link" aria-label="ict solutions">
-                                Home Network: Secure, reliable Wi-Fi setup.
-                                <br>
-                                <small>Enjoy smooth streaming and secure browsing.</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Pricing/Engineer/Software Engineer/index.html" class="service-link" aria-label="software engineering">
-                                Tech Support: Friendly help with devices.
-                                <br>
-                                <small>Get patient assistance for all your tech needs.</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Auth/auth.html" class="service-link" aria-label="ict security">
-                                Data Backup: Automatic file protection.
-                                <br>
-                                <small>Safeguard your photos, documents, and memories.</small>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Business Column -->
-                <div class="col-md-6 text-center mb-4">
-                    <h3>
-                        Business
-                    </h3>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="/Auth/auth.html" class="service-link" aria-label="consult">
-                                IT Management: Outsourced IT support.
-                                <br>
-                                <small>Focus on your business, we handle the tech.</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Auth/auth.html" class="service-link" aria-label="poultry farm">
-                                Websites: Professional sites for growth.
-                                <br>
-                                <small>Attract more customers with a modern website.</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Auth/auth.html" class="service-link" aria-label="ranch">
-                                IT Consulting: Expert tech advice.
-                                <br>
-                                <small>Make informed decisions with our strategic guidance.</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Auth/auth.html" class="service-link" aria-label="ranch">
-                                Cybersecurity: Protection from threats.
-                                <br>
-                                <small>Keep your business data safe and secure.</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Auth/auth.html" class="service-link" aria-label="ranch">
-                                Remote Support: Fast, reliable assistance.
-                                <br>
-                                <small>Minimize downtime with our quick remote solutions.</small>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Stack Section -->
-    <section id="tech-stack" class="py-5 terminal-theme">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col">
-                    <div class="terminal-header">
-                        <span class="terminal-title">~/tech-stack</span>
-                    </div>
-                    <div class="terminal-body">
-                        <p class="command-line">$ ls technologies</p>
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="fab fa-python"></i>
-                                <span class="tech-name">python3</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-js"></i>
-                                <span class="tech-name">javascript</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-react"></i>
-                                <span class="tech-name">react.js</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-node"></i>
-                                <span class="tech-name">node.js</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-git-alt"></i>
-                                <span class="tech-name">git</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-docker"></i>
-                                <span class="tech-name">docker</span>
-                            </div>
+                        <h2 class="text-start choose-engineer-title">
+                            Why Choose The Engineer? <i class="fa-solid fa-arrow-turn-down"></i>
+                        </h2>
+                        <div class="choose-engineer-text">
+                            <p>
+                                <span class="span">
+                                    <i class="fas fa-cogs me-2"></i>
+                                    Versatile Expertise:
+                                </span> <br>
+                                Like a Swiss Army knife for the digital age, our engineer effortlessly switches between crafting sleek, user-friendly web applications and diving deep into hardware diagnostics. Whether it’s breathing new life into a sluggish server or designing a database that hums with efficiency, they’ve got it covered.
+                            </p>
+                            <p>
+                                <span class="span">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Fortress-Level Security:
+                                </span> <br>
+                                In an era of ever-evolving cyber threats, our engineer is your digital knight in shining armor. They don’t just patch vulnerabilities—they build impenetrable fortresses, ensuring your data and systems are locked down tighter than a vault.
+                            </p>
+                            <p>
+                                <span class="span">
+                                    <i class="fas fa-lightbulb me-2"></i>
+                                    Problem-Solving with Panache:
+                                </span> <br>
+                                Tech troubles? Consider them solved. With a knack for turning complex issues into simple fixes, our engineer approaches every challenge with precision, creativity, and a dash of humor. Because who says tech can’t be fun?
+                            </p>
+                            <p>
+                                <span class="span">
+                                    <i class="fas fa-layer-group me-2"></i>
+                                    End-to-End Solutions:
+                                </span> <br>
+                                From the front-end finesse of web development to the back-end brilliance of database management, our engineer delivers holistic solutions that are as elegant as they are effective. They don’t just fix problems—they elevate your entire digital experience.
+                            </p>
                         </div>
+
+                        <h2 class="text-start set-apart-title">
+                            What Makes My Experiencess Valuable? <i class="fa-solid fa-arrow-turn-down"></i>
+                        </h2>
+                        <div class="set-apart-text">
+                            <h4 class="set-apart-title-2">
+                                I know you have options, but here’s why the engineer stands out in a crowded field:
+                            </h4>
+                            <p>
+                                <span class="span">
+                                    <i class="fas fa-palette me-2"></i>
+                                    Tailored to You:
+                                </span> <br>
+                                No cookie-cutter fixes here. Every solution is custom-crafted to fit your unique needs, ensuring maximum impact and minimal disruption.
+                            </p>
+                            <p>
+                                <span class="span">
+                                    <i class="fas fa-star me-2"></i>
+                                    Commitment to Excellence:
+                                </span> <br>
+                                Our engineer doesn’t just meet expectations—they exceed them. With a relentless focus on quality and customer satisfaction, they turn tech woes into wins, one project at a time.
+                            </p>
+                            <p>
+                                <span class="span">
+                                    <i class="fas fa-grin-alt me-2"></i>
+                                    A Touch of Wit:
+                                </span> <br>
+                                Let’s face it—tech can be intimidating. But with our engineer, you’ll find a partner who makes the complex feel simple and the stressful feel manageable. Expect clear communication, a collaborative spirit, and maybe even a well-timed tech pun or two.
+                            </p>
+                        </div>
+
+                        <h2 class="text-start tech-game-title">
+                            Ready to Elevate Your Tech Game? <i class="fa-solid fa-arrow-turn-down"></i>
+                        </h2>
+                        <p class="tech-game-text">
+                            Whether you’re looking to launch a cutting-edge web app, revive ailing hardware, optimize your databases, or fortify your cybersecurity, our engineer is your go-to guru. With them in your corner, you’re not just solving problems—you’re unlocking new possibilities.
+                        </p>
+                        <p class="tech-game-text">
+                            Discover the difference a true tech artisan can make. Explore our services and let’s transform your digital dreams into reality—because your technology should work for you, not against you.
+                        </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-5 terminal-theme">
-        <div class="container">
-            <div class="terminal-header">
-                <span class="terminal-title">~/projects</span>
-            </div>
-            <div class="terminal-body">
-                <p class="command-line">$ ls featured-repos</p>
-                <div class="repo-grid">
-                    <!-- Featured Repository Cards -->
-                    <div class="repo-card">
-                        <div class="repo-header">
-                            <i class="fab fa-github"></i>
-                            <span class="repo-name">project-alpha</span>
-                        </div>
-                        <p class="repo-description">Full-stack web application with React and Node.js</p>
-                        <div class="repo-stats">
-                            <span class="stat"><i class="fas fa-code-branch"></i> 24</span>
-                            <span class="stat"><i class="fas fa-star"></i> 12</span>
-                            <span class="language"><span class="lang-color js"></span>JavaScript</span>
+            <!-- Services Section -->
+            <section id="services" class="section-content bg-app-black">
+                <div class="container text-start">
+                    <div>
+                        <h1 class="text-start">
+                            The Comprehensive Services
+                        </h1>
+
+                        <div class="row services-row">
+                            <div class="col-lg-6">
+                                <div class="card text-white card-hover-effect">
+                                    <div class="card-body d-flex flex-column">
+                                        <h3 class="card-title">
+                                            <i class="fas fa-code me-2"></i>
+                                            Software Design and Development
+                                        </h3>
+                                        <p class="card-text flex-grow-1">
+                                            From conceptualization to deployment, we offer end-to-end software design and development services. Whether you need a dynamic web application, a robust desktop solution, or a custom mobile app, our engineer crafts scalable, efficient, and user-friendly software tailored to your specific requirements. We focus on clean code, modern architectures, and seamless user experiences.
+                                        </p>
+                                        <div>
+                                            <p class="card-text2">
+                                                Price: 
+                                                <span>
+                                                    From $5,000
+                                                </span>
+                                            </p>
+                                            <a @click="requestQuote('Software Design and Development')" class="btn">
+                                                Request a Quote
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card text-white card-hover-effect">
+                                    <div class="card-body d-flex flex-column">
+                                        <h3 class="card-title">
+                                            <i class="fas fa-microchip me-2"></i>
+                                            Hardware Diagnostics and Repairs
+                                        </h3>
+                                        <p class="card-text flex-grow-1">
+                                            Experiencing hardware issues? Our expert provides meticulous diagnostics and efficient repair services for a wide range of computer hardware, including desktops, laptops, servers, and peripherals. We identify root causes, replace faulty components, and optimize your systems to ensure peak performance and extend the lifespan of your valuable equipment.
+                                        </p>
+                                        <div>
+                                            <p class="card-text2">
+                                                Price: 
+                                                <span>
+                                                    From $150/hr + parts
+                                                </span>
+                                            </p>
+                                            <a @click="requestQuote('Hardware Diagnostics and Repairs')" class="btn">
+                                                Request a Quote
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card text-white card-hover-effect">
+                                    <div class="card-body d-flex flex-column">
+                                        <h3 class="card-title">
+                                            <i class="fas fa-database me-2"></i>
+                                            Database Management
+                                        </h3>
+                                        <p class="card-text flex-grow-1">
+                                            Efficient data management is crucial for any modern business. We design, implement, and maintain robust database systems (SQL, NoSQL, etc.) that ensure data integrity, optimal performance, and easy accessibility. From setting up new databases to migrating existing ones and performing regular maintenance, we ensure your data infrastructure is a well-oiled machine.
+                                        </p>
+                                        <div>
+                                            <p class="card-text2">
+                                                Price: 
+                                                <span>
+                                                    Packages from $800/month
+                                                </span>
+                                            </p>
+                                            <a @click="requestQuote('Database Management')" class="btn">
+                                                Request a Quote
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card text-white card-hover-effect">
+                                    <div class="card-body d-flex flex-column">
+                                        <h3 class="card-title">
+                                            <i class="fas fa-user-secret me-2"></i>
+                                            Security Tests and Auditing
+                                        </h3>
+                                        <p class="card-text flex-grow-1">
+                                            Protecting your digital assets is paramount. We conduct thorough security tests and audits to identify vulnerabilities in your systems, networks, and applications. Our services include penetration testing, vulnerability assessments, compliance auditing, and recommendations for implementing robust security measures to safeguard your data against cyber threats.
+                                        </p>
+                                        <div>
+                                            <p class="card-text2">
+                                                Price: 
+                                                <span>
+                                                    Project-based, starting from $1,200
+                                                </span>
+                                            </p>
+                                            <a @click="requestQuote('Security Tests and Auditing')" class="btn">
+                                                Request a Quote
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div class="repo-card">
-                        <div class="repo-header">
-                            <i class="fab fa-github"></i>
-                            <span class="repo-name">api-service</span>
-                        </div>
-                        <p class="repo-description">RESTful API service with Python and FastAPI</p>
-                        <div class="repo-stats">
-                            <span class="stat"><i class="fas fa-code-branch"></i> 18</span>
-                            <span class="stat"><i class="fas fa-star"></i> 8</span>
-                            <span class="language"><span class="lang-color python"></span>Python</span>
+            <!-- Contact Section -->
+            <section id="contact" class="section-content bg-app-black">
+                <div class="container p-4 text-start">
+                    <div>
+                        <h1 class=" contact-title text-center">Get In Touch</h1>
+                        <p class="contact-title-2 text-start">
+                            Please use the links below to request a quote or send us a message.
+                        </p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="social-media-link card-hover-effect">
+                                        <a href="https:whatsapp.com/+254712629497" target="_blank" class="social-link">
+                                            <i class="fab fa-whatsapp"></i>
+                                            <span>Whatsapp</span>
+                                        </a>
+                                        <p>Stay updated with our latest news, insights, and community discussions.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="social-media-link card-hover-effect">
+                                        <a href="YOUR_LINKEDIN_LINK" target="_blank" class="social-link">
+                                            <i class="fab fa-linkedin"></i>
+                                            <span>LinkedIn</span>
+                                        </a>
+                                        <p>Explore professional networking and industry-related content.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="social-media-link card-hover-effect">
+                                        <a href="YOUR_TWITTER_LINK" target="_blank" class="social-link">
+                                            <i class="fab fa-twitter"></i>
+                                            <span>Twitter</span>
+                                        </a>
+                                        <p>Get quick updates, tech insights, and engage in real-time conversations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="document-download-link card-hover-effect">
+                                        <a href="YOUR_DOCUMENT_LINK_1" target="_blank" class="social-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Download Whitepaper</span>
+                                        </a>
+                                        <p>Read our comprehensive whitepaper on cutting-edge technology solutions.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="document-download-link card-hover-effect">
+                                        <a href="YOUR_DOCUMENT_LINK_2" target="_blank" class="social-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Download Case Study</span>
+                                        </a>
+                                        <p>Explore real-world examples of how we've helped businesses thrive.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div class="repo-card">
-                        <div class="repo-header">
-                            <i class="fab fa-github"></i>
-                            <span class="repo-name">docker-compose-setup</span>
-                        </div>
-                        <p class="repo-description">Container orchestration for microservices</p>
-                        <div class="repo-stats">
-                            <span class="stat"><i class="fas fa-code-branch"></i> 15</span>
-                            <span class="stat"><i class="fas fa-star"></i> 6</span>
-                            <span class="language"><span class="lang-color docker"></span>Docker</span>
-                        </div>
+            <!-- Referrals Section -->
+            <section id="referrals" class="section-content bg-app-black">
+                <div class="container text-start">
+                    <div>
+                        <h1 class="referral-title text-end">
+                            Been Referred? Get Your Discount!
+                        </h1>
+                        <p class="referral-title-2 text-center">
+                            If you've received a unique referral code from one of our satisfied clients or partners,
+                            enter it below to unlock a special discount on your first service!
+                        </p>
+
+                        <form @submit.prevent="validateReferralCode" class="col-md-8 mx-auto">
+                            <div class="mb-4 referral-form">
+                                <label for="referralCode" class="form-label text-white">Your Referral Code</label>
+                                <input type="text" class="form-control" id="referralCode" v-model="referralCodeInput" required>
+                            </div>
+                            <div class="d-grid mb-4">
+                                <button type="submit" class="btn">Apply Code</button>
+                            </div>
+                            <div v-if="referralMessage" :class="['alert', referralMessageType === 'success' ? 'alert-success' : 'alert-danger']" role="alert">
+                                {{ referralMessage }}
+                            </div>
+                            <div class="d-grid mt-4" v-if="referralApplied">
+                                <a @click="scrollToSection('contact')" class="btn">
+                                    Contact Us & Claim Your Discount!
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-black text-white p-3 text-center mt-auto">
+            <div class="container">
+                <p>&copy; muthunguclintn@gmail.com || All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button v-if="showBackToTop" @click="scrollToTop" class="btn btn-success btn-lg back-to-top-btn rounded-circle shadow-lg">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- Form Submission Success Modal -->
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-white border-success">
+                    <div class="modal-header border-bottom border-success">
+                        <h5 class="modal-title text-success" id="successModalLabel">Message Sent!</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Thank you for your message! We have received your inquiry and will get back to you shortly.
+                    </div>
+                    <div class="modal-footer border-top border-success">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5 bg-light">
-        <div class="container">
-            <div class="row text-center mb-4">
-                <div class="col">
-                    <h2 class="text-dark">Testimonials</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <blockquote class="blockquote">
-                        <p>"The solutions provided were innovative and exceeded our expectations. Highly recommend!"</p>
-                        <footer class="blockquote-footer">Elijah Ndegwa, <cite title="Company">TechCorp</cite></footer>
-                    </blockquote>
-                </div>
-                <div class="col-md-4 text-center">
-                    <blockquote class="blockquote">
-                        <p>"Professional and efficient service. Truly a pleasure to work with."</p>
-                        <footer class="blockquote-footer">Samson Oduor, <cite title="Company">AgriSolutions</cite></footer>
-                    </blockquote>
-                </div>
-                <div class="col-md-4 text-center">
-                    <blockquote class="blockquote">
-                        <p>"Their expertise in software engineering helped us achieve our goals seamlessly."</p>
-                        <footer class="blockquote-footer">Abdi Hassan, <cite title="Company">InnovateTech</cite></footer>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="container-fluid py-3" ">
-    <div class="row ">
-      <div class="col-md-6 d-flex align-items-center ">
-        <a href="/Auth/auth.html " class="footer-link me-3 ">Privacy Policy</a>
-        <a href="/Auth/auth.html " class="footer-link ">Disclaimer</a>
-      </div>
-      <div class="col-md-6 d-flex justify-content-end align-items-center ">
-        <small class="text-muted ">&copy; Admin@muthungu.co.ke.</small>
-      </div>
     </div>
-  </footer>
 
-  <!-- Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js "></script>
-  <!-- Custom JavaScript -->
-  <script src="scripts.js "></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
