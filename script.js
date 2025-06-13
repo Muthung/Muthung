@@ -113,6 +113,29 @@ createApp({
             }, 100);
         }
 
+        // --- Download Button Persistence Logic ---
+        const visibleDownloadBtn = ref('');
+        let downloadBtnTimeout = null;
+
+        function showDownloadButton(doc) {
+            clearTimeout(downloadBtnTimeout);
+            visibleDownloadBtn.value = doc;
+        }
+        function hideDownloadButton() {
+            downloadBtnTimeout = setTimeout(() => {
+                visibleDownloadBtn.value = '';
+            }, 7000); // 7 seconds
+        }
+        function keepDownloadButton(doc) {
+            clearTimeout(downloadBtnTimeout);
+            visibleDownloadBtn.value = doc;
+        }
+        function leaveDownloadButton(doc) {
+            downloadBtnTimeout = setTimeout(() => {
+                visibleDownloadBtn.value = '';
+            }, 7000);
+        }
+
         // --- Contact Button Persistence Logic ---
         const visibleContactBtn = ref('');
         let contactBtnTimeout = null;
@@ -163,6 +186,11 @@ createApp({
             showSocialBtn, showDownloadBtn,
             onSocialEnter, onSocialLeave, onSocialBtnEnter, onSocialBtnLeave,
             onDownloadEnter, onDownloadLeave, onDownloadBtnEnter, onDownloadBtnLeave,
+            visibleDownloadBtn,
+            showDownloadButton,
+            hideDownloadButton,
+            keepDownloadButton,
+            leaveDownloadButton,
             // Contact Button Persistence
             visibleContactBtn,
             showContactButton,
