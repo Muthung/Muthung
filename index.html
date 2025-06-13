@@ -14,7 +14,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body class="bg-dark text-white">
-    <div id="app" class="d-flex flex-column min-vh-100 position-relative">
+    <div id="app" v-cloak class="d-flex flex-column min-vh-100 position-relative">
         <!-- Scroll Progress Indicator -->
         <div id="scroll-progress-bar" class="fixed-top"></div>
 
@@ -23,25 +23,25 @@
             <div class="container d-flex justify-content-center">
                 <ul class="navbar-nav flex-row">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home" @click="scrollToSection('home')">
+                        <a class="nav-link" href="#home">
                             <i class="fas fa-home me-2"></i>
                            Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services" @click="scrollToSection('services')">
+                        <a class="nav-link" href="#services">
                             <i class="fas fa-cogs me-2"></i>
                            Services
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact" @click="scrollToSection('contact')">
+                        <a class="nav-link" href="#contact">
                             <i class="fas fa-envelope me-2"></i>
                            Contact
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#referrals" @click="scrollToSection('referrals')">
+                        <a class="nav-link" href="#referrals">
                             <i class="fas fa-users me-2"></i>
                            Referrals
                         </a>
@@ -262,44 +262,89 @@
                         </p>
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-4 mb-4">
-                                    <div class="social-media-link card-hover-effect">
-                                        <a href="https:whatsapp.com/+254712629497" target="_blank" class="social-link">
-                                            <i class="fab fa-whatsapp"></i>
-                                            <span>Whatsapp</span>
-                                        </a>
-                                        <p>
-                                            Reach out for quick responses, support, or to discuss your project needs directly.
-                                        </p>
+                                <div class="col-md-4 mb-4 position-relative">
+                                    <div class="card-hover-group position-relative">
+                                        <div class="social-media-link card-hover-effect"
+                                             @mouseenter="showContactButton('whatsapp')"
+                                             @mouseleave="hideContactButton">
+                                            <a href="https://wa.me/254712629497" target="_blank" class="social-link">
+                                                <i class="fab fa-whatsapp"></i>
+                                                <span>Whatsapp</span>
+                                            </a>
+                                            <p>
+                                                Reach out for quick responses, support, or to discuss your project needs directly.
+                                            </p>
+                                        </div>
+                                        <button
+                                            v-if="visibleContactBtn === 'whatsapp'"
+                                            class="btn social-btn slide-btn"
+                                            @mouseenter="keepContactButton('whatsapp')"
+                                            @mouseleave="leaveContactButton"
+                                            @click="openSocial('whatsapp')"
+                                            type="button"
+                                            style="position: absolute; left: 0; right: 0; margin: auto; z-index: 2;"
+                                        >
+                                            Message on WhatsApp
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="social-media-link card-hover-effect">
-                                        <a href="https://linkedin/clinton-m-n" target="_blank" class="social-link">
-                                            <i class="fab fa-linkedin"></i>
-                                            <span>LinkedIn</span>
-                                        </a>
-                                        <p>
-                                            Connect for professional networking, industry insights, and to explore collaboration opportunities.
-                                        </p>
+                                <div class="col-md-4 mb-4 position-relative">
+                                    <div class="card-hover-group position-relative">
+                                        <div class="social-media-link card-hover-effect"
+                                             @mouseenter="showContactButton('linkedin')"
+                                             @mouseleave="hideContactButton">
+                                            <a href="https://linkedin.com/in/clinton-m-n" target="_blank" class="social-link">
+                                                <i class="fab fa-linkedin"></i>
+                                                <span>LinkedIn</span>
+                                            </a>
+                                            <p>
+                                                Connect for professional networking, industry insights, and to explore collaboration opportunities.
+                                            </p>
+                                        </div>
+                                        <button
+                                            v-if="visibleContactBtn === 'linkedin'"
+                                            class="btn social-btn slide-btn"
+                                            @mouseenter="keepContactButton('linkedin')"
+                                            @mouseleave="leaveContactButton"
+                                            @click="openSocial('linkedin')"
+                                            type="button"
+                                            style="position: absolute; left: 0; right: 0; margin: auto; z-index: 2;"
+                                        >
+                                            Message on LinkedIn
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="social-media-link card-hover-effect">
-                                        <a href="https://x.com/amMuthungu" target="_blank" class="social-link">
-                                            <i class="fab fa-twitter"></i>
-                                            <span>Twitter</span>
-                                        </a>
-                                        <p>
-                                            Get quick updates, tech insights, and engage in real-time conversations.
-                                        </p>
+                                <div class="col-md-4 mb-4 position-relative">
+                                    <div class="card-hover-group position-relative">
+                                        <div class="social-media-link card-hover-effect"
+                                             @mouseenter="showContactButton('twitter')"
+                                             @mouseleave="hideContactButton">
+                                            <a href="https://x.com/amMuthungu" target="_blank" class="social-link">
+                                                <i class="fab fa-twitter"></i>
+                                                <span>Twitter</span>
+                                            </a>
+                                            <p>
+                                                Get quick updates, tech insights, and engage in real-time conversations.
+                                            </p>
+                                        </div>
+                                        <button
+                                            v-if="visibleContactBtn === 'twitter'"
+                                            class="btn social-btn slide-btn"
+                                            @mouseenter="keepContactButton('twitter')"
+                                            @mouseleave="leaveContactButton"
+                                            @click="openSocial('twitter')"
+                                            type="button"
+                                            style="position: absolute; left: 0; right: 0; margin: auto; z-index: 2;"
+                                        >
+                                            Message on Twitter
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="document-download-link card-hover-effect">
-                                        <a href="YOUR_DOCUMENT_LINK_1" target="_blank" class="social-link">
+                                <div class="col-md-6 mb-4 position-relative">
+                                    <div class="document-download-link card-hover-effect position-relative">
+                                        <a href="#" class="social-link" @click.prevent>
                                             <i class="fas fa-file-pdf"></i>
                                             <span>Download Whitepaper</span>
                                         </a>
@@ -307,10 +352,13 @@
                                             Dive deep into methodologies, case studies, and the technologies leveraged to deliver exceptional results.
                                         </p>
                                     </div>
+                                    <button class="btn download-btn slide-btn" @click="openDownloadModal('Whitepaper')" type="button">
+                                        Request Whitepaper
+                                    </button>
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="document-download-link card-hover-effect">
-                                        <a href="YOUR_DOCUMENT_LINK_2" target="_blank" class="social-link">
+                                <div class="col-md-6 mb-4 position-relative">
+                                    <div class="document-download-link card-hover-effect position-relative">
+                                        <a href="#" class="social-link" @click.prevent>
                                             <i class="fas fa-file-alt"></i>
                                             <span>Download Case Study</span>
                                         </a>
@@ -318,6 +366,9 @@
                                             Explore detailed case studies showcasing successful projects, challenges overcome, and the impact of known solutions.
                                         </p>
                                     </div>
+                                    <button class="btn download-btn slide-btn" @click="openDownloadModal('Case Study')" type="button">
+                                        Request Case Study
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -345,14 +396,6 @@
                             <div class="d-grid mb-4">
                                 <button type="submit" class="btn">Apply Code</button>
                             </div>
-                            <div v-if="referralMessage" :class="['alert', referralMessageType === 'success' ? 'alert-success' : 'alert-danger']" role="alert">
-                                {{ referralMessage }}
-                            </div>
-                            <div class="d-grid mt-4" v-if="referralApplied">
-                                <a @click="scrollToSection('contact')" class="btn">
-                                    Contact Us & Claim Your Discount!
-                                </a>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -366,11 +409,55 @@
             </div>
         </footer>
 
+        <!-- Quote Request Modal -->
+        <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true" v-cloak>
+          <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+              <div class="modal-header">
+                <h5 class="modal-title" id="quoteModalLabel">Request a Quote</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form @submit.prevent="submitQuoteRequest">
+                  <div class="mb-3">
+                    <label class="form-label">Service</label>
+                    <input type="text" class="form-control" v-model="selectedService" readonly>
+                  </div>
+                  <div class="mb-3">
+                    <label for="quoteName" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="quoteName" v-model="quoteName" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="quoteEmail" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" id="quoteEmail" v-model="quoteEmail" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="quoteDetails" class="form-label">Project Details</label>
+                    <textarea class="form-control" id="quoteDetails" v-model="quoteDetails" rows="3" required></textarea>
+                  </div>
+                  <div v-if="quoteSuccess" class="alert alert-success" role="alert">
+                    {{ quoteSuccess }}
+                  </div>
+                  <div v-if="quoteError" class="alert alert-danger" role="alert">
+                    {{ quoteError }}
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Send Request</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Link to your external JavaScript file -->
     <script src="script.js"></script>
+    <style>
+        [v-cloak] { display: none; }
+    </style>
 </body>
 </html>
