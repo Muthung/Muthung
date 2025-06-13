@@ -464,6 +464,121 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
 }
 
+/* Custom styles for the quote modal to match the webapp theme */
+#quoteModal .modal-content {
+    background: #181a1b;
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5);
+    border: 1px solid #222;
+}
+#quoteModal .modal-header {
+    border-bottom: 1px solid #222;
+    background: #181a1b;
+}
+#quoteModal .modal-title {
+    color: #6dfc8c;
+    font-weight: 600;
+}
+#quoteModal .btn-close {
+    filter: invert(1);
+}
+#quoteModal .form-control {
+    background: #23272b;
+    color: #fff;
+    border: 1px solid #444;
+}
+#quoteModal .form-control:focus {
+    background: #23272b;
+    color: #fff;
+    border-color: #6dfc8c;
+    box-shadow: 0 0 0 0.2rem rgba(109,252,140,0.15);
+}
+#quoteModal .btn-success {
+    background: linear-gradient(90deg, #6dfc8c 0%, #1fa463 100%);
+    border: none;
+    color: #181a1b;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(109,252,140,0.15);
+}
+#quoteModal .btn-success:hover {
+    background: linear-gradient(90deg, #1fa463 0%, #6dfc8c 100%);
+    color: #181a1b;
+}
+#quoteModal .alert-success {
+    background: #232b23;
+    color: #6dfc8c;
+    border-color: #6dfc8c;
+}
+#quoteModal .alert-danger {
+    background: #2b2323;
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+/* Slide-in Button Effect */
+.slide-btn {
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  width: 100%;
+  margin: 0.5rem auto 0 auto;
+  background: #198754;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.social-media-link:hover + .slide-btn,
+.document-download-link:hover + .slide-btn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.slide-btn:hover {
+  background: #157347;
+}
+.position-relative {
+  position: relative !important;
+}
+
+/* Slide-out Button Effect with Delay */
+.card-hover-group {
+  position: relative;
+}
+.slide-btn {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  width: 90%;
+  margin: 0.5rem auto 0 auto;
+  background: #198754;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  position: absolute;
+  left: 0; right: 0;
+  z-index: 2;
+  transition-delay: 0s, .7s;
+}
+.card-hover-group:hover .slide-btn,
+.card-hover-group:focus-within .slide-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+.card-hover-group:not(:hover):not(:focus-within) .slide-btn {
+  transition-delay: .7s, 0s;
+}
+
 /* Responsive adjustments for mobile screens */
 @media (max-width: 576px) {
     .navbar-nav.flex-row {
