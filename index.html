@@ -343,32 +343,56 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-4 position-relative">
-                                    <div class="document-download-link card-hover-effect position-relative">
-                                        <a href="#" class="social-link" @click.prevent>
-                                            <i class="fas fa-file-pdf"></i>
-                                            <span>Download Whitepaper</span>
-                                        </a>
-                                        <p>
-                                            Dive deep into methodologies, case studies, and the technologies leveraged to deliver exceptional results.
-                                        </p>
+                                    <div class="card-hover-group position-relative">
+                                        <div class="document-download-link card-hover-effect"
+                                             @mouseenter="showDownloadButton('Whitepaper')"
+                                             @mouseleave="hideDownloadButton">
+                                            <a href="#" class="social-link" @click.prevent>
+                                                <i class="fas fa-file-pdf"></i>
+                                                <span>Download Whitepaper</span>
+                                            </a>
+                                            <p>
+                                                Dive deep into methodologies, case studies, and the technologies leveraged to deliver exceptional results.
+                                            </p>
+                                        </div>
+                                        <button
+                                            v-if="visibleDownloadBtn === 'Whitepaper'"
+                                            class="btn download-btn slide-btn"
+                                            @mouseenter="keepDownloadButton('Whitepaper')"
+                                            @mouseleave="leaveDownloadButton('Whitepaper')"
+                                            @click="openDownloadModal('Whitepaper')"
+                                            type="button"
+                                            style="position: absolute; left: 0; right: 0; margin: auto; z-index: 2;"
+                                        >
+                                            Request Whitepaper
+                                        </button>
                                     </div>
-                                    <button class="btn download-btn slide-btn" @click="openDownloadModal('Whitepaper')" type="button">
-                                        Request Whitepaper
-                                    </button>
                                 </div>
                                 <div class="col-md-6 mb-4 position-relative">
-                                    <div class="document-download-link card-hover-effect position-relative">
-                                        <a href="#" class="social-link" @click.prevent>
-                                            <i class="fas fa-file-alt"></i>
-                                            <span>Download Case Study</span>
-                                        </a>
-                                        <p>
-                                            Explore detailed case studies showcasing successful projects, challenges overcome, and the impact of known solutions.
-                                        </p>
+                                    <div class="card-hover-group position-relative">
+                                        <div class="document-download-link card-hover-effect"
+                                             @mouseenter="showDownloadButton('Case Study')"
+                                             @mouseleave="hideDownloadButton">
+                                            <a href="#" class="social-link" @click.prevent>
+                                                <i class="fas fa-file-alt"></i>
+                                                <span>Download Case Study</span>
+                                            </a>
+                                            <p>
+                                                Explore detailed case studies showcasing successful projects, challenges overcome, and the impact of known solutions.
+                                            </p>
+                                        </div>
+                                        <button
+                                            v-if="visibleDownloadBtn === 'Case Study'"
+                                            class="btn download-btn slide-btn"
+                                            @mouseenter="keepDownloadButton('Case Study')"
+                                            @mouseleave="leaveDownloadButton('Case Study')"
+                                            @click="openDownloadModal('Case Study')"
+                                            type="button"
+                                            style="position: absolute; left: 0; right: 0; margin: auto; z-index: 2;"
+                                        >
+                                            Request Case Study
+                                        </button>
                                     </div>
-                                    <button class="btn download-btn slide-btn" @click="openDownloadModal('Case Study')" type="button">
-                                        Request Case Study
-                                    </button>
                                 </div>
                             </div>
                         </div>
