@@ -1,3 +1,9 @@
+/* =========================
+   GLOBAL & ROOT VARIABLES
+   =========================
+   - :root: Defines CSS variables for theme colors, used throughout the site for consistency.
+   - body: Sets the main font and enables smooth scrolling for all HTML content.
+*/
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Savate:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root  {
@@ -16,8 +22,13 @@ body {
     scroll-behavior: smooth;
 }
 
-/* --- Navigation Bar Styles --- */
-
+/* =========================
+   NAVIGATION BAR STYLES
+   =========================
+   - .navbar: Styles the <nav> element for the main navigation bar, including background, height, and border.
+   - .navbar-nav, .nav-item, .nav-link: Style the <ul> and <li> navigation structure, including hover/focus effects and icon spacing.
+   - .fas: Targets Font Awesome icons inside nav links.
+*/
 .navbar {
     height: 14vh;    
     background: rgba(6, 39, 38, 0.7); /* semi-transparent background */
@@ -131,8 +142,13 @@ body {
     padding: 0 7px;
 }
 
-/* --- Home Section Styles --- */
-
+/* =========================
+   HOME SECTION STYLES
+   =========================
+   - #home: Styles the <section id="home">, including headings, subheadings, and text blocks.
+   - .home-container, .choose-engineer-title, .set-apart-title, .tech-game-title: Style various headings and containers in the home section.
+   - .span, .fas: Style highlighted text and icons within the home section.
+*/
 #home {
     padding: 0;
 }
@@ -267,8 +283,13 @@ body {
     margin-bottom: 42px;
 }
 
-/* --- Services Section Styles --- */
-
+/* =========================
+   SERVICES SECTION STYLES
+   =========================
+   - #services: Styles the <section id="services"> and its child elements.
+   - .services-row, .card, .card-body: Style the Bootstrap card layout for service offerings.
+   - .btn: Styles the service action buttons.
+*/
 #services .services-row {
     margin-top: 3rem;
 }
@@ -347,8 +368,13 @@ body {
     text-align: center;
 }
 
-/* --- Contact Section Styles --- */
-
+/* =========================
+   CONTACT SECTION STYLES
+   =========================
+   - #contact: Styles the <section id="contact"> and its child elements.
+   - .social-media-link, .document-download-link: Style the social and download links, including icons and text.
+   - .social-link, i, span: Style anchor tags and icons within contact links.
+*/
 #contact .contact-title-2 {
     font-size: 1rem;
     font-weight: 400;
@@ -427,8 +453,12 @@ body {
     padding-left: 4rem;
 }
 
-/* --- Referrals Section Styles --- */
-
+/* =========================
+   REFERRALS SECTION STYLES
+   =========================
+   - #referrals: Styles the <section id="referrals"> and its form elements.
+   - .referral-form, input, form .btn: Style the referral input and submit button.
+*/
 #referrals .referral-form input {
     border: none;
     background: var(--extra-color);
@@ -453,7 +483,11 @@ body {
     color: var(--background-color);
 }
 
-/* --- Card Hover Effect --- */
+/* =========================
+   CARD HOVER EFFECTS
+   =========================
+   - .card-hover-effect: Adds interactive hover effects to service cards.
+*/
 .card-hover-effect {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     border-color: #198754 !important; /* Ensure border is green */
@@ -464,7 +498,11 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
 }
 
-/* Custom styles for the quote modal to match the webapp theme */
+/* =========================
+   QUOTE MODAL STYLES
+   =========================
+   - #quoteModal: Styles the modal dialog for quote requests, including header, form, and alerts.
+*/
 #quoteModal .modal-content {
     background: #181a1b;
     color: #fff;
@@ -472,28 +510,34 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5);
     border: 1px solid #222;
 }
+
 #quoteModal .modal-header {
     border-bottom: 1px solid #222;
     background: #181a1b;
 }
+
 #quoteModal .modal-title {
     color: #6dfc8c;
     font-weight: 600;
 }
+
 #quoteModal .btn-close {
     filter: invert(1);
 }
+
 #quoteModal .form-control {
     background: #23272b;
     color: #fff;
     border: 1px solid #444;
 }
+
 #quoteModal .form-control:focus {
     background: #23272b;
     color: #fff;
     border-color: #6dfc8c;
     box-shadow: 0 0 0 0.2rem rgba(109,252,140,0.15);
 }
+
 #quoteModal .btn-success {
     background: linear-gradient(90deg, #6dfc8c 0%, #1fa463 100%);
     border: none;
@@ -501,22 +545,30 @@ body {
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(109,252,140,0.15);
 }
+
 #quoteModal .btn-success:hover {
     background: linear-gradient(90deg, #1fa463 0%, #6dfc8c 100%);
     color: #181a1b;
 }
+
 #quoteModal .alert-success {
     background: #232b23;
     color: #6dfc8c;
     border-color: #6dfc8c;
 }
+
 #quoteModal .alert-danger {
     background: #2b2323;
     color: #ff6b6b;
     border-color: #ff6b6b;
 }
 
-/* Slide-in Button Effect */
+/* =========================
+   SLIDE-IN/SLIDE-OUT BUTTON EFFECTS
+   =========================
+   - .slide-btn: Styles the animated button that appears on hover for social/document links and cards.
+   - .card-hover-group: Container for cards with slide-out button effect.
+*/
 .slide-btn {
   display: block;
   opacity: 0;
@@ -534,23 +586,27 @@ body {
   right: 0;
   z-index: 2;
 }
+
 .social-media-link:hover + .slide-btn,
 .document-download-link:hover + .slide-btn {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
+
 .slide-btn:hover {
-  background: #157347;
+    color: var(--text-color);
+    border-bottom: 1.4px solid var(--text-color);
 }
+
 .position-relative {
   position: relative !important;
 }
 
-/* Slide-out Button Effect with Delay */
 .card-hover-group {
   position: relative;
 }
+
 .slide-btn {
   display: block;
   opacity: 0;
@@ -568,6 +624,7 @@ body {
   z-index: 2;
   transition-delay: 0s, .7s;
 }
+
 .card-hover-group:hover .slide-btn,
 .card-hover-group:focus-within .slide-btn {
   opacity: 1;
@@ -575,11 +632,16 @@ body {
   transform: translateY(0);
   transition-delay: 0s;
 }
+
 .card-hover-group:not(:hover):not(:focus-within) .slide-btn {
   transition-delay: .7s, 0s;
 }
 
-/* Responsive adjustments for mobile screens */
+/* =========================
+   RESPONSIVE STYLES (MOBILE)
+   =========================
+   - @media (max-width: 576px): Adjusts layout, font sizes, paddings, and button widths for mobile screens.
+*/
 @media (max-width: 576px) {
     .navbar-nav.flex-row {
         flex-direction: row !important;      /* Keep nav links in a row */
