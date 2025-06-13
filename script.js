@@ -159,6 +159,32 @@ createApp({
             }, 7000);
         }
 
+        // --- Download Email Modal State and Methods ---
+        const selectedDownloadDoc = ref('');
+        const downloadEmail = ref('');
+        const downloadSuccess = ref('');
+        const downloadError = ref('');
+
+        function openDownloadModal(doc) {
+            selectedDownloadDoc.value = doc;
+            downloadEmail.value = '';
+            downloadSuccess.value = '';
+            downloadError.value = '';
+            const modal = new bootstrap.Modal(document.getElementById('downloadEmailModal'));
+            modal.show();
+        }
+
+        function submitDownloadRequest() {
+            if (!downloadEmail.value || !downloadEmail.value.includes('@')) {
+                downloadError.value = 'Please enter a valid email address.';
+                downloadSuccess.value = '';
+                return;
+            }
+            // Simulate sending document
+            downloadSuccess.value = `The ${selectedDownloadDoc.value} will be sent to ${downloadEmail.value}!`;
+            downloadError.value = '';
+        }
+
         // --- Lifecycle Hooks ---
         onMounted(() => {});
 
@@ -196,7 +222,14 @@ createApp({
             showContactButton,
             hideContactButton,
             keepContactButton,
-            leaveContactButton
+            leaveContactButton,
+            // Download Email Modal
+            selectedDownloadDoc,
+            downloadEmail,
+            downloadSuccess,
+            downloadError,
+            openDownloadModal,
+            submitDownloadRequest
         };
     }
 }).mount('#app');
