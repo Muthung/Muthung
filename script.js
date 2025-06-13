@@ -1,10 +1,8 @@
 // script.js
-const { createApp, ref, computed, onMounted, onUnmounted } = Vue;
+const { createApp, ref, computed } = Vue;
 
 createApp({
     setup() {
-        const activeSection = ref('home');
-
         // Reactive data for the referral form
         const referralCodeInput = ref('');
         const referralMessage = ref('');
@@ -185,13 +183,7 @@ createApp({
             downloadError.value = '';
         }
 
-        // --- Lifecycle Hooks ---
-        onMounted(() => {});
-
-        onUnmounted(() => {});
-
         return {
-            activeSection,
             currentYear,
             // Referral form data and methods
             referralCodeInput,
@@ -234,19 +226,71 @@ createApp({
     }
 }).mount('#app');
 
-// Ensure scrollToSection works for static HTML navigation links
+// --- ScrollSpy Implementation ---
 window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.nav-link').forEach(link => {
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const sections = ['home', 'services', 'contact', 'referrals'].map(id => document.getElementById(id));
+
+    function onScrollSpy() {
+        let currentSection = null;
+        const scrollPos = window.scrollY + window.innerHeight / 3;
+
+        for (const section of sections) {
+            if (section && section.offsetTop <= scrollPos) {
+                currentSection = section;
+            }
+        }
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && currentSection && href.replace('#', '') === currentSection.id) {
+                link.parentElement.classList.add('active-scrollspy');
+            } else {
+                link.parentElement.classList.remove('active-scrollspy');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', onScrollSpy, { passive: true });
+    onScrollSpy();
+
+    // Smooth scroll for nav links
+    navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
                 e.preventDefault();
-                const sectionId = href.substring(1);
-                const section = document.getElementById(sectionId);
+                const section = document.getElementById(href.substring(1));
                 if (section) {
                     section.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         });
     });
+
+    // --- Universal Fade-in on Scroll Implementation ---
+    function revealOnScroll() {
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // When scrolling down: fade in and move up as element enters from below
+            if (rect.top < windowHeight * 0.90 && rect.bottom > 0) {
+                el.classList.add('visible');
+                el.classList.remove('hidden-up');
+            }
+            // When scrolling up: fade out and move down as element leaves upwards
+            else if (rect.bottom <= 0) {
+                el.classList.remove('visible');
+                el.classList.add('hidden-up');
+            }
+            // When element is below the viewport: reset to initial state
+            else {
+                el.classList.remove('visible', 'hidden-up');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealOnScroll, { passive: true });
+    revealOnScroll(); // Initial check on load
 });
