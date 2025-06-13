@@ -469,14 +469,14 @@ body {
     .navbar-nav.flex-row {
         flex-direction: row !important;      /* Keep nav links in a row */
         align-items: center !important;
-        width: 100%;
+        width: 80%;
         justify-content: space-between;
         gap: 0.2rem;
     }
     .navbar-nav .nav-item {
         width: auto;
-        padding-right: 6px;
-        margin-right: 2px;
+        padding: 7px;
+        margin: 0 7px;
     }
     .navbar-nav .nav-link {
         padding: 0.3rem 0.5rem !important;
@@ -509,6 +509,7 @@ body {
     /* Reduce font sizes for headings */
     #home h1, #services h1, #contact h1, #referrals .referral-title {
         font-size: 1.3rem !important;
+        text-decoration: none !important;
     }
     #home .choose-engineer-title,
     #home .set-apart-title,
