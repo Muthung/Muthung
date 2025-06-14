@@ -55,10 +55,31 @@ createApp({
             modal.show();
         };
 
-        const submitQuoteRequest = () => {
+        const submitQuoteRequest = async () => {
             if (quoteName.value && quoteEmail.value && quoteDetails.value) {
-                quoteSuccess.value = 'Your quote request has been sent! We will contact you soon.';
-                quoteError.value = '';
+                try {
+                    const form = document.getElementById('quoteForm');
+                    const formData = new FormData(form);
+                    const response = await fetch('https://formspree.io/f/movwwqne', {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: formData
+                    });
+                    if (response.ok) {
+                        quoteSuccess.value = 'Your quote request has been sent!';
+                        quoteError.value = '';
+                        // Optionally reset form fields
+                        quoteName.value = '';
+                        quoteEmail.value = '';
+                        quoteDetails.value = '';
+                    } else {
+                        quoteError.value = 'Failed to send request. Please try again.';
+                        quoteSuccess.value = '';
+                    }
+                } catch (e) {
+                    quoteError.value = 'Failed to send request. Please try again.';
+                    quoteSuccess.value = '';
+                }
             } else {
                 quoteError.value = 'Please fill in all fields.';
                 quoteSuccess.value = '';
@@ -294,3 +315,5 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll, { passive: true });
     revealOnScroll(); // Initial check on load
 });
+
+
