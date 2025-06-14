@@ -380,7 +380,7 @@
                                             class="btn download-btn slide-btn"
                                             @mouseenter="keepDownloadButton('Whitepaper')"
                                             @mouseleave="leaveDownloadButton('Whitepaper')"
-                                            @click="openDownloadModal('Whitepaper')"
+                                            @click="openDownloadModal('Whitepaper', 'Whitepaper.docx')"
                                             type="button"
                                             style="position: absolute; left: 0; right: 0; margin: auto; z-index: 2;"
                                         >
@@ -391,7 +391,7 @@
                                 <div class="col-md-6 mb-4 position-relative">
                                     <div class="card-hover-group position-relative reveal-on-scroll">
                                         <div class="document-download-link card-hover-effect"
-                                             @mouseenter="showDownloadButton('Case Study')"
+                                             @mouseenter="showDownloadButton('Case Study', 'Case-Study.docx')"
                                              @mouseleave="hideDownloadButton">
                                             <a class="social-link" @click.prevent>
                                                 <i class="fas fa-file-alt"></i>
@@ -520,21 +520,14 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form @submit.prevent="submitDownloadRequest">
+            <form id="downloadForm">
                 <div class="mb-3">
-                    <label for="downloadEmail" class="form-label">Your Email Address</label>
-                    <input type="email" class="form-control" id="downloadEmail" v-model="downloadEmail" required placeholder="you@example.com">
+                <label for="downloadEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="downloadEmail" placeholder="Enter your email" required>
+                <div id="downloadError" class="text-danger mt-2" style="display:none;"></div>
                 </div>
-                <div v-if="downloadSuccess" class="alert alert-success" role="alert">
-                    {{ downloadSuccess }}
-                </div>
-                <div v-if="downloadError" class="alert alert-danger" role="alert">
-                    {{ downloadError }}
-                </div>
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-success">Send Document</button>
-                </div>
-                </form>
+                <button type="submit" class="btn btn-success">Download Document</button>
+            </form>
             </div>
             </div>
         </div>
