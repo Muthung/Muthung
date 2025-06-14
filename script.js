@@ -179,12 +179,14 @@ createApp({
         }
 
         // --- Download Email Modal State and Methods ---
+        const selectedDownloadCategory = ref('');
         const selectedDownloadDoc = ref('');
         const downloadEmail = ref('');
         const downloadSuccess = ref('');
         const downloadError = ref('');
 
-        function openDownloadModal(doc) {
+        function openDownloadModal(category, doc) {
+            selectedDownloadCategory.value = category;
             selectedDownloadDoc.value = doc;
             downloadEmail.value = '';
             downloadSuccess.value = '';
@@ -193,16 +195,44 @@ createApp({
             modal.show();
         }
 
-        function submitDownloadRequest() {
-            if (!downloadEmail.value || !downloadEmail.value.includes('@')) {
-                downloadError.value = 'Please enter a valid email address.';
+        const submitDownloadRequest = async () => {
+            if (downloadEmail.value && selectedDownloadCategory.value && selectedDownloadDoc.value) {
+                try {
+                    const form = document.getElementById('downloadForm');
+                    const formData = new FormData(form);
+                    formData.append('downloaded_at', new Date().toISOString());
+
+                    const response = await fetch('https://formspree.io/f/movwwqne', {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        // Trigger the download from the correct subfolder
+                        const docPath = `/assets/docs/${selectedDownloadCategory.value}/${selectedDownloadDoc.value}`;
+                        const link = document.createElement('a');
+                        link.href = docPath;
+                        link.download = selectedDownloadDoc.value;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+
+                        downloadSuccess.value = 'Document sent!';
+                        downloadError.value = '';
+                    } else {
+                        downloadError.value = 'Failed to send request. Please try again.';
+                        downloadSuccess.value = '';
+                    }
+                } catch {
+                    downloadError.value = 'Failed to send request. Please try again.';
+                    downloadSuccess.value = '';
+                }
+            } else {
+                downloadError.value = 'Please enter your email.';
                 downloadSuccess.value = '';
-                return;
             }
-            // Simulate sending document
-            downloadSuccess.value = `The ${selectedDownloadDoc.value} will be sent to ${downloadEmail.value}!`;
-            downloadError.value = '';
-        }
+        };
 
         return {
             currentYear,
@@ -237,6 +267,7 @@ createApp({
             keepContactButton,
             leaveContactButton,
             // Download Email Modal
+            selectedDownloadCategory,
             selectedDownloadDoc,
             downloadEmail,
             downloadSuccess,
@@ -314,6 +345,41 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', revealOnScroll, { passive: true });
     revealOnScroll(); // Initial check on load
+
+    // --- Download Form Submission ---
+    function handleDownloadSubmit(e) {
+        e.preventDefault();
+        const email = document.getElementById('downloadEmail').value;
+        const errorDiv = document.getElementById('downloadError');
+        errorDiv.style.display = 'none';
+        if (!email) {
+            errorDiv.textContent = 'Please enter your email.';
+            errorDiv.style.display = 'block';
+            return;
+        }
+        const formData = new FormData();
+        formData.append('email', email);
+        fetch('https://formspree.io/f/movwwqne', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = '/assets/docs/Case_Study/Case-Study.docx'; // Secure as needed
+            } else {
+                errorDiv.textContent = 'Submission failed. Please try again.';
+                errorDiv.style.display = 'block';
+            }
+        }).catch(() => {
+            errorDiv.textContent = 'Submission failed. Please try again.';
+            errorDiv.style.display = 'block';
+        });
+    }
+
+    const downloadForm = document.getElementById('downloadForm');
+    if (downloadForm) {
+        downloadForm.addEventListener('submit', handleDownloadSubmit);
+    }
 });
 
 
