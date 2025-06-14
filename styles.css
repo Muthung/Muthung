@@ -676,6 +676,20 @@ body {
 }
 
 /* =========================
+   GLASS PANEL STYLES
+   =========================
+   - .glass-panel: Adds a frosted glass effect for panels.
+*/
+.glass-panel {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 2rem;
+}
+
+/* =========================
    RESPONSIVE STYLES (MOBILE)
    =========================
    - @media (max-width: 576px): Adjusts layout, font sizes, paddings, and button widths for mobile screens.
