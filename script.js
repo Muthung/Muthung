@@ -400,6 +400,14 @@ window.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('backToTop');
     btn.style.setProperty('--backtotop-bg-height', '0%');
     });
+
+    // Add smooth scroll to top functionality
+    const btn = document.getElementById('backToTop');
+    if (btn) {
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
 
 
