@@ -380,6 +380,26 @@ window.addEventListener('DOMContentLoaded', () => {
     if (downloadForm) {
         downloadForm.addEventListener('submit', handleDownloadSubmit);
     }
+    
+    window.addEventListener('scroll', function() {
+    const btn = document.getElementById('backToTop');
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const percent = Math.min(scrolled / docHeight, 1);
+
+    // Show/hide button as before
+    btn.style.display = scrolled > 100 ? 'block' : 'none';
+
+    // Animate background height
+    btn.style.setProperty('--backtotop-bg-height', `${percent * 100}%`);
+    btn.querySelector('span')?.style.setProperty('color', percent > 0.5 ? '#fff' : 'var(--extra-color)');
+    });
+
+    // Set the background height via CSS variable
+    document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('backToTop');
+    btn.style.setProperty('--backtotop-bg-height', '0%');
+    });
 });
 
 
