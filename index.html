@@ -391,50 +391,10 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-4 position-relative">
-                                    <div class="card-hover-group position-relative reveal-on-scroll">
-                                        <div class="document-download-link card-hover-effect"
-                                             @mouseenter="showDownloadButton('Case Study', 'Case-Study.docx')"
-                                             @mouseleave="hideDownloadButton">
-                                            <a class="social-link" @click.prevent>
-                                                <i class="fas fa-file-alt"></i>
-                                                <span>Download Case Study</span>
-                                            </a>
-                                            <p>
-                                                Explore detailed case studies showcasing successful projects, challenges overcome, and the impact of known solutions.
-                                            </p>
-                                        </div>
-                                        <button
-                                            v-if="visibleDownloadBtn === 'Case Study'"
-                                            class="btn download-btn slide-btn"
-                                            @mouseenter="keepDownloadButton('Case Study')"
-                                            @mouseleave="leaveDownloadButton('Case Study')"
-                                            @click="openDownloadModal('Case Study')"
-                                            type="button"
-                                            style="position: absolute; left: 0; right: 0; margin: auto; z-index: 2;"
-                                        >
-                                            Request Case Study
-                                        </button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Minimalist GitHub Repos Section -->
-            <section id="projects" class="section-content bg-app-black">
-            <div class="container">
-                <h1 class="text-start">GitHub Projects</h1>
-                <ul class="list-unstyled">
-                <li v-for="repo in repos" :key="repo.id" class="mb-3">
-                    <a :href="repo.html_url" target="_blank" class="fw-bold text-success">{{ repo.name }}</a>
-                    <span v-if="repo.language" class="text-muted ms-2 small">{{ repo.language }}</span>
-                    <div class="text-light small">{{ repo.description }}</div>
-                </li>
-                </ul>
-            </div>
             </section>
 
             <!-- Referrals Section -->
